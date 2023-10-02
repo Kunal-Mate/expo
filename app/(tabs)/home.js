@@ -8,11 +8,6 @@ import COLOR from '../../src/constants/COLOR';
 
 const home = () => {
   return (
-      // <SafeAreaView style={{ flex: 0 }}>
-      //   {/* hero  and search screen */}
-      //   <HeroCardTab/>
-      //   {/* Categories */}
-      // </SafeAreaView>
       <View style={{ flex: 1, backgroundColor:COLOR.White }}>
         <HeroCardTab/>
 

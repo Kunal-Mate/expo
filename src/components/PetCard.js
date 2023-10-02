@@ -4,9 +4,9 @@ import  COLORS  from "../constants/COLOR";
 import { checkImageURL } from "../utils";
 
 
-const PetCard = ({pet}) => {
+const PetCard = ({pet, handleNavigate}) => {
   return(
-      <TouchableOpacity style={styles.productItem} >
+      <TouchableOpacity style={styles.productItem} onPress={handleNavigate}>
         <View style={styles.imageContainer}>
           {pet.pet_image && (
             // <Image source={job.employer_logo} style={styles.productImage} />
@@ -19,10 +19,9 @@ const PetCard = ({pet}) => {
         </View>
         <View style={styles.productInfoContainer}>
           <Text style={styles.productName}>{pet.pet_name}</Text>
-          <Text style={styles.productName}>{pet.pet_name}</Text>
-          <Text style={styles.productPrice}>PetType:- {pet.pet_type}</Text>
+          <Text style={styles.productPrice}>Pet Type:- {pet.pet_type}</Text>
           <Text style={styles.productPrice}>Breed:- {pet.pet_breed}</Text>
-          <Text style={styles.productPrice}>Gender:- {pet.pet_price}</Text>
+          <Text style={styles.productPrice}>Price:- {pet.pet_price}</Text>
         </View>
       </TouchableOpacity>
   )       
