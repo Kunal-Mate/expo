@@ -7,7 +7,7 @@ import COLORS from '../../constants/COLOR';
 import useFetch from '../../hook/useFetch';
 import {ActivityIndicator} from 'react-native-paper';
 import PetCard from '../PetCard';
-import { useRouter } from 'expo-router';
+import {useRouter} from 'expo-router';
 
 const PetListCardTab = () => {
   const {data, isLoading, error} = useFetch('search', {
@@ -40,10 +40,12 @@ const PetListCardTab = () => {
               <PetCard
                 pet={pet}
                 key={`pet-details-${pet?.pet_id}`}
-                handleNavigate={() => Router.push(`/pet-details/${pet?.pet_id}`)}
-                />
-                ))
-                )}
+                handleNavigate={() =>
+                  Router.push(`/pet-details/${pet?.pet_id}`)
+                }
+              />
+            ))
+          )}
         </View>
       </ScrollView>
     </View>

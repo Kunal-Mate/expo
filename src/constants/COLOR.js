@@ -1,9 +1,16 @@
 export default {
+    
+    LightOrange : '#F9AC19',
     Orange: "#ff8533",
-    Gray: '#636363',
+    RED: '#ff0000',
+    
     LigntGray: '#D3D3CB',
     Dray_Shade: '#ADA7A7',
-    RED: '#ff0000',
+    Gray: '#636363',
+
+    Gray1:'#B1B0AF',
+    Gray2:'#DDDBD7',
+    Gray3:'#F4F2F0',
     
     Success: '#28a745',
     Warning: '#ffc107',
@@ -14,7 +21,9 @@ export default {
     Light: '#f8f9fa',
     Dark: '#343a40',
     
-    LightOrange : '#FFA500',
     Black: '#000000',
+    Black_Shade: '#3C3C3C',
     White: '#FFFFFF',
+
+
 };
