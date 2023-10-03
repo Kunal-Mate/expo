@@ -34,7 +34,7 @@ const PetListCardTab = () => {
           {isLoading ? (
             <ActivityIndicator size="large" color={COLORS.Primary} />
           ) : error ? (
-            <Text>Something went worng</Text>
+            <Text>Something went wrong</Text>
           ) : (
             data?.map(pet => (
               <PetCard
