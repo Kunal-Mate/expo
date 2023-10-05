@@ -18,7 +18,7 @@ export default () => {
                 style={{
                   width: 25,
                   height: 25,
-                  tintColor: focused ? COLOR.RED : COLOR.Danger,
+                  tintColor: focused ? COLOR.RED : COLOR.Black,
                 }}
               />
               <Text style={{color: focused ? COLOR.RED : COLOR.Black, fontSize: 12}}>

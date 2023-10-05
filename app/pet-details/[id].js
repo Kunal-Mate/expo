@@ -16,15 +16,22 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {Button} from 'react-native-paper';
 import COLOR from '../../src/constants/COLOR';
 import styles from './styles';
+import mockPets from '../../src/mock/mockPets';
 
 const PetDetails = () => {
   const params = useGlobalSearchParams();
   const Router = useRouter();
 
+  // const data  = mockPets;
+  // console.log(data[params.id]);
+  console.log(params.id)
+
+  // const {data, isLoading, error, refetch} = useFetch('pet-details', {
   const {data, isLoading, error, refetch} = useFetch('pet-details', {
     pet_id: params.id,
   });
-  console.log(data[0]);
+  // console.log('para', params.id);
+
   const [refreshing, SetRefreshing] = useState(false);
   const onRefresh = () => {};
 
@@ -60,6 +67,12 @@ const PetDetails = () => {
             <Text>No data</Text>
           ) : (
             <View>
+              {/* the log is a for example to get data in the param and compare to
+              the fetched data */}
+              {/* <View style={{alignSelf:"center"}}>
+                <Text>id: {log.pet_id}</Text>
+                <Text>id: {log.pet_name}</Text>
+              </View> */}
               <SliderContainer />
               <DetailsTab />
             </View>

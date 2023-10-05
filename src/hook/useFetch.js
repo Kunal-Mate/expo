@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import mockPets from "../mock/mockPets";
+import mockdoctors from "../mock/mockDoctor";
 
 const useFetch = (endpoint, query) => {
   const [data, setData] = useState([]);
@@ -10,8 +11,9 @@ const useFetch = (endpoint, query) => {
   const options = {
     method: "GET",
     // url: `https://jsearch.p.rapidapi.com/${endpoint}`,
-    url: mockPets
-    // params: { ...query },
+    url: mockPets,
+    // url: mockdoctors,
+    params: { ...query },
     // headers: {
     //   'X-RapidAPI-Key': 'e3d01f2d50msh031c4348d9545fcp1a4b0djsnac8510891b07',
     //   'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
@@ -24,6 +26,8 @@ const useFetch = (endpoint, query) => {
       // const response = await axios.request(options);
       // setData(response.data.data);
       setData(mockPets);
+      // console.log("mock",mockPets)
+      // setData(mockdoctors);
       setIsLoading(false);
       // console.log(response)
     } catch (error) {
