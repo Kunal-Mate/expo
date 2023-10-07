@@ -10,6 +10,9 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import COLORS from '../../constants/COLOR';
 import FONT from '../../constants/FONT';
+import { useRouter } from 'expo-router';
+
+const Router = useRouter();
 
 const DoctorList = ({doctors}) => {
   const navigation = useNavigation();
@@ -22,7 +25,9 @@ const DoctorList = ({doctors}) => {
   const handleContactClick = () => {
     // Navigate to the chat screen and pass the selected doctor's information
     if (selectedDoctor) {
-      navigation.navigate('Chat', {doctor: selectedDoctor});
+      // navigation.navigate('Chat', {doctor: selectedDoctor});
+      Router.push(`/chat-screen/${selectedDoctor}`); 
+      // Router.push(`/pet-details/${selectedDoctor}`)
     }
   };
 
