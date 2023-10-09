@@ -4,6 +4,7 @@ import {
   ScrollView,
   RefreshControl,
   ActivityIndicator,
+  TouchableOpacity
 } from 'react-native';
 import {useCallback, useState} from 'react';
 import {Stack, useGlobalSearchParams, useRouter} from 'expo-router';
@@ -36,8 +37,9 @@ const PetDetails = () => {
   const onRefresh = () => {};
 
   return (
-    <View>
-      <View style={styles.ActionContainer}>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.backButton}  onPress={() => Router.back()}>
         <Icon
           style={styles.backIcon}
           name="arrow-left"
@@ -45,6 +47,8 @@ const PetDetails = () => {
           color={COLOR.Black}
           onPress={() => Router.back()}
         />
+        </TouchableOpacity>
+        <Text style={styles.headerTitle}>Pet Profile</Text>
         <Icon
           style={styles.Icon}
           name="share-alt"
@@ -53,7 +57,7 @@ const PetDetails = () => {
           onPress={() => console.log('Share button')}
         />
       </View>
-      <View style={styles.Container}>
+      <View style={styles.detailsContainer}>
         <ScrollView
           showsVerticalScrollIndicator={false}
           RefreshControl={

@@ -85,11 +85,12 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   doctorCard: {
-    borderColor: COLORS.Gray1,
+    borderColor: COLORS.Gray2,
     marginBottom: 2,
     borderWidth: 2,
     padding: 5,
     marginRight: 10,
+    borderRadius:15,
   },
   avatar: {
     height: 50,

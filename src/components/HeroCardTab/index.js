@@ -25,8 +25,9 @@ const HeroCardTab = () => {
       <View
         style={{
           // height: 290,
-          // backgroundColor: "#e06c00",
-          backgroundColor: COLORS.Secondary,
+          backgroundColor: "#F28C28",
+          // backgroundColor: "#FFA500",
+          // backgroundColor: COLORS.Orange,
           borderRadius: 20,
           margin: 5,
           elevation: 10,

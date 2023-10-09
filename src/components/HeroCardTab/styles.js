@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import COLOR from "../../constants/COLOR";
 
 const styles = StyleSheet.create({
 container: {
@@ -37,7 +38,8 @@ container: {
     paddingTop: 3,
   },
   MainTitle: {
-    color: "#fff",
+    // color: "#fff",
+    color: COLOR.White,
     fontSize: 30,
     fontWeight: "700",
     marginTop: 40,

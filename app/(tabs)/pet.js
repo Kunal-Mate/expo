@@ -5,14 +5,18 @@ import {
   Text,
   Image,
   StyleSheet,
-  TouchableOpacity,
   ScrollView,
+  FlatList,
+  Dimensions 
+
 } from 'react-native';
 import COLOR from '../../src/constants/COLOR';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const PetProfileScreen = () => {
-  // Replace these with actual pet details
+  const { width } = Dimensions.get('window');
+  const photoSize = (width - 40) / 3; // 40 is the total horizontal margin and padding
+
   const Router = useRouter();
   const pet = {
     name: 'Buddy',
@@ -26,59 +30,71 @@ const PetProfileScreen = () => {
       'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
       'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
       'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
     ],
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        {/* <TouchableOpacity style={styles.backButton}  onPress={() => Router.back()}>
-          <Text style={styles.backButtonText}>Back</Text>
-        </TouchableOpacity> */}
         <Text style={styles.headerTitle}>Pet Profile</Text>
+        <Icon
+          style={styles.Icon}
+          name="ellipsis-v"
+          size={25}
+          color={COLOR.Gray}
+          // onPress={() => console.log('Share button')}
+        />
       </View>
       <ScrollView contentContainerStyle={styles.profileContainer}>
         <View
           style={{
             flexDirection: 'row',
-            paddingLeft: 15,
+            marginLeft: 15,
+            marginRight: 15,
+            alignItems: 'center',
           }}>
           <Image source={{uri: pet.imageUrl}} style={styles.petImage} />
-          <View
-            style={{
-              flex: 1,
-              alignItems: 'center',
-              padding: 5,
-            }}>
-            <Text style={styles.petName}>{pet.name}</Text>
+          <View style={{flex: 1, padding: 5}}>
+            <View style={{alignItems: 'center'}}>
+              <Text style={styles.petName}>{pet.name}</Text>
+            </View>
             <View
               style={{
                 flexDirection: 'row',
-                alignItems: 'center',
                 padding: 5,
               }}>
+              <Text style={styles.petBreed}>{pet.breed} ◆ </Text>
               <Text style={styles.petType}>{pet.type}</Text>
-              <FontAwesomeIcon icon={solid("diamond")} />
-              <Text style={styles.petBreed}>{pet.breed}</Text>
+            </View>
+            <View style={styles.statsContainer}>
+              <View style={styles.statItem}>
+                <Text style={styles.statNumber}>{pet.photos.length}</Text>
+                <Text style={styles.statLabel}>Photos</Text>
+              </View>
+              <View style={styles.statItem}>
+                <Text style={styles.statNumber}>{pet.followers}</Text>
+                <Text style={styles.statLabel}>Followers</Text>
+              </View>
             </View>
           </View>
         </View>
-        <View style={styles.statsContainer}>
-          <View style={styles.statItem}>
-            <Text style={styles.statNumber}>{pet.followers}</Text>
-            <Text style={styles.statLabel}>Followers</Text>
-          </View>
-          <View style={styles.statItem}>
-            <Text style={styles.statNumber}>{pet.photos.length}</Text>
-            <Text style={styles.statLabel}>Photos</Text>
-          </View>
+        <View style={{ padding: 5, }}>
+        <Text style={styles.sectionTitle}>Bio</Text>
+        <Text style={styles.bio}>Bio aksjdhfkahs aksjdfh asjdkf asdfhdf ashfkjahd sdkfhasd f askdjhfkasdh</Text>
+
         </View>
-        <Text style={styles.sectionTitle}>Photos</Text>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {pet.photos.map((photo, index) => (
-            <Image key={index} source={{uri: photo}} style={styles.photo} />
-          ))}
-        </ScrollView>
+        <View style={{ padding: 5, }}>
+          <Text style={styles.sectionTitle}>Photos</Text>
+          <FlatList
+            data={pet.photos}
+            numColumns={3}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item }) => (
+              <Image source={{ uri: item }} style={[styles.photo, { width: photoSize, height: photoSize }]} />
+            )}
+          />
+        </View>
       </ScrollView>
     </View>
   );
@@ -106,6 +122,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: 'white',
+    flex:1
   },
   profileContainer: {
     flexGrow: 1,
@@ -136,8 +153,8 @@ const styles = StyleSheet.create({
   },
   statsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 20,
+    justifyContent: 'space-evenly',
+    padding: 10,
   },
   statItem: {
     alignItems: 'center',
@@ -155,13 +172,19 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     color: 'black',
-    marginBottom: 10,
+    margin: 10,
+    marginLeft:15,
   },
   photo: {
-    width: 120,
-    height: 120,
     borderRadius: 10,
-    marginRight: 10,
+    margin: 5,
+  },
+  bio: {
+    fontSize: 14,
+    color: 'grey',
+    marginLeft :20,
+    marginRight :20,
+    textAlign:"justify"
   },
 });
 

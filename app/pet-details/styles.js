@@ -20,6 +20,36 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   Container: {
+  },
+  
+  container: {
+    flex: 1,
+    backgroundColor: 'orange',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    padding: 20,
+  },
+  backButton: {
+    marginRight: 20,
+  },
+  backButtonText: {
+    color: 'white',
+    fontSize: 16,
+  },
+  headerTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: 'white',
+    flex:1
+  },
+  detailsContainer: {
+    backgroundColor: 'white',
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    paddingTop: 30,
     height:700,
   },
   

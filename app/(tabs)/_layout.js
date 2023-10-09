@@ -18,10 +18,10 @@ export default () => {
                 style={{
                   width: 25,
                   height: 25,
-                  tintColor: focused ? COLOR.RED : COLOR.Black,
+                  tintColor: focused ? COLOR.Orange : COLOR.Black,
                 }}
               />
-              <Text style={{color: focused ? COLOR.RED : COLOR.Black, fontSize: 12}}>
+              <Text style={{color: focused ? COLOR.Orange : COLOR.Black, fontSize: 12}}>
                 Home
               </Text>
             </View>
@@ -39,10 +39,10 @@ export default () => {
                 style={{
                   width: 25,
                   height: 25,
-                  tintColor: focused ? COLOR.RED : COLOR.Black,
+                  tintColor: focused ? COLOR.Orange : COLOR.Black,
                 }}
               />
-              <Text style={{color: focused ? COLOR.RED : COLOR.Black, fontSize: 12}}>
+              <Text style={{color: focused ? COLOR.Orange : COLOR.Black, fontSize: 12}}>
                 Expert
               </Text>
             </View>
@@ -60,10 +60,10 @@ export default () => {
                 style={{
                   width: 25,
                   height: 25,
-                  tintColor: focused ? COLOR.RED : COLOR.Black,
+                  tintColor: focused ? COLOR.Orange : COLOR.Black,
                 }}
               />
-              <Text style={{color: focused ? COLOR.RED : COLOR.Black, fontSize: 12}}>
+              <Text style={{color: focused ? COLOR.Orange : COLOR.Black, fontSize: 12}}>
                 Pet
               </Text>
             </View>
@@ -73,7 +73,7 @@ export default () => {
       <Tabs.Screen
         name="cart"
         options={{
-          tabBarBadge: 3,
+          tabBarBadge: 5,
           tabBarIcon: ({focused}) => (
             <View style={{alignItems: 'center', justifyContent: 'center'}}>
               <Image
@@ -82,10 +82,10 @@ export default () => {
                 style={{
                   width: 25,
                   height: 25,
-                  tintColor: focused ? COLOR.RED : COLOR.Black,
+                  tintColor: focused ? COLOR.Orange : COLOR.Black,
                 }}
               />
-              <Text style={{color: focused ? COLOR.RED : COLOR.Black, fontSize: 12}}>
+              <Text style={{color: focused ? COLOR.Orange : COLOR.Black, fontSize: 12}}>
                 Cart
               </Text>
             </View>

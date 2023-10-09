@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     // backgroundColor: "#5e5e5e",
-    backgroundColor: COLORS.Orange,
+    backgroundColor: COLORS.Gray1,
     borderRadius: 25,
     elevation: 2,
     shadowColor: COLORS.Black,

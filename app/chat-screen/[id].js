@@ -63,17 +63,41 @@ const chat_screen = () => {
     <View style={styles.container}>
       {/* Header with doctor's avatar and name */}
       <View style={styles.header}>
-        <Image
-          source={require('../../assets/IMGS/cat.jpg')}
-          style={styles.avatar}
-        />
-        <View style={styles.Title}>
-          <Text style={styles.doctorName}>DR. Mukerash Varma</Text>
-          <View style={styles.statuscontainer}>
-            <Icon name="circle" color={COLOR.Success} />
-            <Text style={styles.status}>Online</Text>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => Router.back()}>
+          <Icon
+            style={styles.backIcon}
+            name="arrow-left"
+            size={20}
+            color={COLOR.Black}
+            onPress={() => Router.back()}
+          />
+        </TouchableOpacity>
+        <View style={styles.headerTitle}>
+          <Image
+            source={require('../../assets/IMGS/cat.jpg')}
+            style={styles.avatar}
+          />
+          <View style={styles.Title}>
+            <Text style={styles.doctorName}>DR. Mukerash Varma</Text>
+            <View style={styles.statuscontainer}>
+              <Icon name="circle" color={COLOR.Success} />
+              <Text style={styles.status}>Online</Text>
+            </View>
           </View>
         </View>
+        <TouchableOpacity
+          style={styles.menuButton}
+          onPress={() => Router.back()}>
+          <Icon
+            style={styles.backIcon}
+            name="ellipsis-v"
+            size={25}
+            color={COLOR.Black}
+            onPress={() => Router.back()}
+          />
+        </TouchableOpacity>
       </View>
 
       {/* Chatbox */}
@@ -106,8 +130,16 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: COLOR.Gray2,
     borderRadius: 5,
-    backgroundColor: COLOR.White,
+    backgroundColor: COLOR.LightOrange,
     elevation: 3,
+    gap: 15,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+  },
+  headerTitle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex:1,
   },
   avatar: {
     width: 50,
@@ -118,6 +150,7 @@ const styles = StyleSheet.create({
   status: {
     fontSize: FONT.SubHead,
     paddingLeft: 3,
+    color: COLOR.Gray,
   },
   statuscontainer: {
     marginLeft: 10,
@@ -126,8 +159,13 @@ const styles = StyleSheet.create({
   },
   doctorName: {
     fontSize: FONT.Headline,
+    color: COLOR.White,
     fontWeight: 'bold',
     marginLeft: 10,
+  },
+  menuButton:{
+    padding:5,
+    marginRight:10,
   },
 });
 

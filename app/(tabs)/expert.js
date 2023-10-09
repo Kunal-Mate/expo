@@ -3,10 +3,11 @@ import React, {useState} from 'react';
 import DoctorList from '../../src/components/DoctorList';
 import {useRouter} from 'expo-router';
 import doctors from '../../src/mock/mockDoctor';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-import COLORS from '../../src/constants/COLOR';
+
+import COLOR from '../../src/constants/COLOR';
 import FONT from '../../src/constants/FONT';
-import {ScrollView} from 'react-native-gesture-handler';
 
 const expert = () => {
   const Router = useRouter();
@@ -20,6 +21,13 @@ const expert = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Expert</Text>
+        <Icon
+          style={styles.Icon}
+          name="ellipsis-v"
+          size={25}
+          color={COLOR.Gray}
+          onPress={() => console.log('Share button')}
+        />
       </View>
       <View style={styles.BodyContainer}>
         <DoctorList doctors={doctors} onDoctorClick={handleDoctorClick} />
@@ -43,6 +51,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: 'white',
+    flex:1
   },
   BodyContainer: {
     flex: 1,
