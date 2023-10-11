@@ -5,16 +5,15 @@ import {
   Text,
   Image,
   StyleSheet,
-  ScrollView,
   FlatList,
-  Dimensions 
-
+  Dimensions,
 } from 'react-native';
+import { ScrollView } from 'react-native-virtualized-view';
 import COLOR from '../../src/constants/COLOR';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const PetProfileScreen = () => {
-  const { width } = Dimensions.get('window');
+const Pet = () => {
+  const {width} = Dimensions.get('window');
   const photoSize = (width - 40) / 3; // 40 is the total horizontal margin and padding
 
   const Router = useRouter();
@@ -27,6 +26,15 @@ const PetProfileScreen = () => {
       'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*', // Replace with the pet's image URL
     followers: 1200,
     photos: [
+      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
       'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
       'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
       'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
@@ -46,7 +54,9 @@ const PetProfileScreen = () => {
           // onPress={() => console.log('Share button')}
         />
       </View>
-      <ScrollView contentContainerStyle={styles.profileContainer}>
+      <View style={styles.profileContainer}>
+      </View>
+      <ScrollView contentContainerStyle={{backgroundColor:COLOR.White}}>
         <View
           style={{
             flexDirection: 'row',
@@ -79,22 +89,29 @@ const PetProfileScreen = () => {
             </View>
           </View>
         </View>
-        <View style={{ padding: 5, }}>
-        <Text style={styles.sectionTitle}>Bio</Text>
-        <Text style={styles.bio}>Bio aksjdhfkahs aksjdfh asjdkf asdfhdf ashfkjahd sdkfhasd f askdjhfkasdh</Text>
-
+        <View style={{padding: 5}}>
+          <Text style={styles.sectionTitle}>Bio</Text>
+          <Text style={styles.bio}>
+            Bio aksjdhfkahs aksjdfh asjdkf asdfhdf ashfkjahd sdkfhasd f
+            askdjhfkasdh
+          </Text>
         </View>
-        <View style={{ padding: 5, }}>
-          <Text style={styles.sectionTitle}>Photos</Text>
-          <FlatList
-            data={pet.photos}
-            numColumns={3}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({ item }) => (
-              <Image source={{ uri: item }} style={[styles.photo, { width: photoSize, height: photoSize }]} />
-            )}
-          />
-        </View>
+      <View style={{padding: 5}}>
+        <Text style={styles.sectionTitle}>Photos</Text>
+        <FlatList
+          data={pet.photos}
+          numColumns={3}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({item}) => (
+            <View>
+              <Image
+                source={{uri: item}}
+                style={[styles.photo, {width: photoSize, height: photoSize}]}
+              />
+            </View>
+          )}
+        />
+      </View>
       </ScrollView>
     </View>
   );
@@ -122,7 +139,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: 'white',
-    flex:1
+    flex: 1,
   },
   profileContainer: {
     flexGrow: 1,
@@ -173,7 +190,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     margin: 10,
-    marginLeft:15,
+    marginLeft: 15,
   },
   photo: {
     borderRadius: 10,
@@ -182,10 +199,10 @@ const styles = StyleSheet.create({
   bio: {
     fontSize: 14,
     color: 'grey',
-    marginLeft :20,
-    marginRight :20,
-    textAlign:"justify"
+    marginLeft: 20,
+    marginRight: 20,
+    textAlign: 'justify',
   },
 });
 
-export default PetProfileScreen;
+export default Pet;

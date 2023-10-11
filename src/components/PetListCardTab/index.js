@@ -19,7 +19,7 @@ const PetListCardTab = () => {
     <View style={{flex: 1, marginTop: 10}}>
       <View style={styles.Heading}>
         <Text style={styles.ListTitle}>List</Text>
-        <View style={styles.more}>
+        <TouchableOpacity style={styles.more} onPress={() => Router.push(``)}>
           <Text style={styles.Explore}>Explore </Text>
           <Icon
             style={styles.arrow}
@@ -27,7 +27,7 @@ const PetListCardTab = () => {
             size={15}
             color={COLORS.Gray}
           />
-        </View>
+        </TouchableOpacity>
       </View>
       <ScrollView>
         <View style={styles.petcontainer}>

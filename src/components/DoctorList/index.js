@@ -41,6 +41,7 @@ const DoctorList = ({doctors}) => {
   return (
     <View style={styles.container}>
       <FlatList
+        showsVerticalScrollIndicator={false}
         data={doctors}
         renderItem={({item}) => (
           <TouchableOpacity onPress={() => handleDoctorClick(item)}>
