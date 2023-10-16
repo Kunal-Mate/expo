@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity, FlatList} from 'react-native';
 import React from 'react';
 import {useRouter, useGlobalSearchParams} from 'expo-router';
 import useFetch from '../../src/hook/useFetch';
@@ -14,15 +14,15 @@ import FONT from '../../src/constants/FONT';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const chat_screen = () => {
-  // const { doctor } = route.params;
-  const Router = useRouter();
-  const params = useGlobalSearchParams();
-  // const {data, isLoading, error, refetch} = useFetch('chat-screen', {
+  // const Router = useRouter();
+  // const { doctor } = Router.params;
+  // const params = useGlobalSearchParams();
+  // const {data, isLoading, error, refetch} = useFetch('expert', {
   //   id: params.id,
   // });
-  const data = mockdoctors;
-  // console.log(data[params.id]);
-  // console.log(params);
+  // const data = mockdoctors;
+  // console.log({data});
+  // console.log();
 
   const customInputToolbar = props => {
     return (
@@ -60,56 +60,63 @@ const chat_screen = () => {
   };
 
   return (
-    <View style={styles.container}>
-      {/* Header with doctor's avatar and name */}
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => Router.back()}>
-          <Icon
-            style={styles.backIcon}
-            name="arrow-left"
-            size={20}
-            color={COLOR.Black}
-            onPress={() => Router.back()}
-          />
-        </TouchableOpacity>
-        <View style={styles.headerTitle}>
-          <Image
-            source={require('../../assets/IMGS/cat.jpg')}
-            style={styles.avatar}
-          />
-          <View style={styles.Title}>
-            <Text style={styles.doctorName}>DR. Mukerash Varma</Text>
-            <View style={styles.statuscontainer}>
-              <Icon name="circle" color={COLOR.Success} />
-              <Text style={styles.status}>Online</Text>
-            </View>
-          </View>
-        </View>
-        <TouchableOpacity
-          style={styles.menuButton}
-          onPress={() => Router.back()}>
-          <Icon
-            style={styles.backIcon}
-            name="ellipsis-v"
-            size={25}
-            color={COLOR.Black}
-            onPress={() => Router.back()}
-          />
-        </TouchableOpacity>
-      </View>
+    // <FlatList
+    //     data={data}
+    //     renderItem={({ item }) => (
+          <Text style={styles.productName}>onDoctorClick</Text>
+    //     )}
+        
+    //   />
+    // <View style={styles.container}>
+    //   {/* Header with doctor's avatar and name */}
+    //   <View style={styles.header}>
+    //     <TouchableOpacity
+    //       style={styles.backButton}
+    //       onPress={() => Router.back()}>
+    //       <Icon
+    //         style={styles.backIcon}
+    //         name="arrow-left"
+    //         size={20}
+    //         color={COLOR.Black}
+    //         onPress={() => Router.back()}
+    //       />
+    //     </TouchableOpacity>
+    //     <View style={styles.headerTitle}>
+    //       <Image
+    //         source={require('../../assets/IMGS/cat.jpg')}
+    //         style={styles.avatar}
+    //       />
+    //       <View style={styles.Title}>
+    //         <Text style={styles.doctorName}>DR. Mukerash Varma</Text>
+    //         <View style={styles.statuscontainer}>
+    //           <Icon name="circle" color={COLOR.Success} />
+    //           <Text style={styles.status}>Online</Text>
+    //         </View>
+    //       </View>
+    //     </View>
+    //     <TouchableOpacity
+    //       style={styles.menuButton}
+    //       onPress={() => Router.back()}>
+    //       <Icon
+    //         style={styles.backIcon}
+    //         name="ellipsis-v"
+    //         size={25}
+    //         color={COLOR.Black}
+    //         onPress={() => Router.back()}
+    //       />
+    //     </TouchableOpacity>
+    //   </View>
 
-      {/* Chatbox */}
-      <GiftedChat
-        messages={[]} // Initialize with empty messages or load messages dynamically
-        onSend={messages => {}}
-        user={{_id: 1}}
-        renderInputToolbar={props => customInputToolbar(props)}
-        renderSend={props => customSend(props)}
-        renderComposer={props => customComposer(props)}
-      />
-    </View>
+    //   {/* Chatbox */}
+    //   <GiftedChat
+    //     messages={[]} // Initialize with empty messages or load messages dynamically
+    //     onSend={messages => {}}
+    //     user={{_id: 1}}
+    //     renderInputToolbar={props => customInputToolbar(props)}
+    //     renderSend={props => customSend(props)}
+    //     renderComposer={props => customComposer(props)}
+    //   />
+    // </View>
   );
 };
 

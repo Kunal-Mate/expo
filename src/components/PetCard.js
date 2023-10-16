@@ -19,9 +19,9 @@ const PetCard = ({pet, handleNavigate}) => {
         </View>
         <View style={styles.productInfoContainer}>
           <Text style={styles.productName}>{pet.pet_name}</Text>
-          <Text style={styles.productPrice}>Pet Type:- {pet.pet_type}</Text>
-          <Text style={styles.productPrice}>Breed:- {pet.pet_breed}</Text>
-          <Text style={styles.productPrice}>Price:- {pet.pet_price}</Text>
+          <Text style={styles.productPrice}>Pet Type:- {pet.name}</Text>
+          <Text style={styles.productPrice}>Breed:- {pet.breed}</Text>
+          <Text style={styles.productPrice}>Price:- {pet.price}</Text>
         </View>
       </TouchableOpacity>
   )       

@@ -3,16 +3,16 @@ import axios from "axios";
 import mockPets from "../mock/mockPets";
 import mockdoctors from "../mock/mockDoctor";
 
-const useFetch = (endpoint, query) => {
+const useFetch = (method,endpoint, query) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const options = {
-    method: "GET",
+    // method: "GET",
+    method: `${method}`,
     // url: `https://jsearch.p.rapidapi.com/${endpoint}`,
-    url: mockPets,
-    // url: mockdoctors,
+    url: `https://b60e-103-158-139-130.ngrok-free.app/api/${endpoint}`,
     params: { ...query },
     // headers: {
     //   'X-RapidAPI-Key': 'e3d01f2d50msh031c4348d9545fcp1a4b0djsnac8510891b07',
@@ -23,16 +23,14 @@ const useFetch = (endpoint, query) => {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      // const response = await axios.request(options);
-      // setData(response.data.data);
-      setData(mockPets);
-      // console.log("mock",mockPets)
+      const response = await axios.request(options);
+      setData(response.data);
+      // setData(mockPets);
       // setData(mockdoctors);
+      // console.log(response.data.data);
       setIsLoading(false);
-      // console.log(response)
     } catch (error) {
       setError(error);
-      console.log(error);
       alert("there is an error");
     } finally {
       setIsLoading(false);

@@ -12,10 +12,11 @@ import COLORS from '../../constants/COLOR';
 import FONT from '../../constants/FONT';
 import { useRouter } from 'expo-router';
 
-const Router = useRouter();
+// const Router = useRouter();
 
 const DoctorList = ({doctors}) => {
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
+  const Router = useRouter();
   const [selectedDoctor, setSelectedDoctor] = useState(null);
 
   const handleDoctorClick = doctor => {
@@ -23,21 +24,29 @@ const DoctorList = ({doctors}) => {
   };
 
   const handleContactClick = () => {
-    // Navigate to the chat screen and pass the selected doctor's information
-    if (selectedDoctor) {
-      // navigation.navigate('Chat', {doctor: selectedDoctor});
-      Router.push(`/chat-screen/${selectedDoctor}`); 
-      // Router.push(`/pet-details/${selectedDoctor}`)
+    if(selectedDoctor) {
+      Router.push(`/chat-screen/${selectedDoctor}`);
+      // console.log(item.id);
     }
-  };
+  }
+
+  // const handleContactClick = () => {
+  //   if (selectedDoctor) {
+  //     // navigation.navigate('Chat', {doctor: selectedDoctor});
+  //     const chat = (`/chat-screen/${selectedDoctor}`)
+  //     Router.push(`/chat-screen/${selectedDoctor}`); 
+  //     // Router.push(`/chat-screen/${selectedDoctor.id}`); 
+  //     console.log(chat);
+  //   }
+  // };
 
   const handleLocationClick = () => {
     // Navigate to a screen that displays the doctor's location on a map
     if (selectedDoctor) {
-      navigation.navigate('DoctorLocation', {doctor: selectedDoctor});
+      // navigation.navigate('DoctorLocation', {doctor: selectedDoctor});
     }
   };
-
+// console.log(doctors);
   return (
     <View style={styles.container}>
       <FlatList
@@ -76,6 +85,7 @@ const DoctorList = ({doctors}) => {
           </TouchableOpacity>
         )}
         keyExtractor={item => item.id.toString()}
+        
       />
     </View>
   );

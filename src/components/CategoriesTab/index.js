@@ -5,25 +5,22 @@ import mockCategories from '../../mock/mockCategories';
 import useFetch from '../../hook/useFetch';
 
 const CategoriesTab = () => {
-  const {data} = useFetch('search', {
-    query: 'Python developer in Texas, USA',
-    num_pages: 1,
-  });
-
+  const {data} = useFetch('GET','pet-categories');
+  // console.log(data);
   return (
     <View>
       <Text style={styles.categories}>Categories</Text>
       <View style={styles.cateListContainer}>
         <View style={styles.listcontainer}>
           <FlatList
-            // data={data}
-            data={mockCategories}
+            data={data}
+            // data={mockCategories}
             horizontal
             showsHorizontalScrollIndicator={false}
             renderItem={({item}) => (
               <TouchableOpacity style={styles.cateItem}>
                 <View style={styles.ItemContainer}>
-                  <Text style={styles.itemtext}>{item.employer_name}</Text>
+                  <Text style={styles.itemtext}>{item.name}</Text>
                 </View>
               </TouchableOpacity>
             )}

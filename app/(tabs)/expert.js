@@ -1,22 +1,28 @@
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DoctorList from '../../src/components/DoctorList';
 import {useRouter} from 'expo-router';
 import doctors from '../../src/mock/mockDoctor';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import useFetch from '../../src/hook/useFetch';
 
 import COLOR from '../../src/constants/COLOR';
 import FONT from '../../src/constants/FONT';
 
 const expert = () => {
+
+  const {data} = useFetch('expert');
+  // console.log(data);
+
   const Router = useRouter();
   const [selectedDoctor, setSelectedDoctor] = useState(null);
 
   const handleDoctorClick = doctor => {
     setSelectedDoctor(doctor);
-    // console.log(doctor);
   };
+
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -30,7 +36,7 @@ const expert = () => {
         />
       </View>
       <View style={styles.BodyContainer}>
-        <DoctorList doctors={doctors} onDoctorClick={handleDoctorClick} />
+        <DoctorList doctors={data} onDoctorClick={handleDoctorClick} />
       </View>
     </View>
   );

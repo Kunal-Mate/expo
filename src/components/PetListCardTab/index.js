@@ -10,16 +10,23 @@ import PetCard from '../PetCard';
 import {useRouter} from 'expo-router';
 
 const PetListCardTab = () => {
-  const {data, isLoading, error} = useFetch('search', {
-    query: 'Python developer in Texas, USA',
-    num_pages: 1,
-  });
-  const Router = useRouter();
+  const router = useRouter();
+  // const {data, isLoading, error} = useFetch('all-data', {
+  //   query: 'Python developer in Texas, USA',
+  //   num_pages: 1,
+  // }); 
+  const {data, isLoading, error} = useFetch("GET",'all-data');
+  console.log(data);
+
+  // const [selectedItem, setSelectedItem] = useState();
+
+  // const handleItemCard = (item) => {}
+  
   return (
     <View style={{flex: 1, marginTop: 10}}>
       <View style={styles.Heading}>
         <Text style={styles.ListTitle}>List</Text>
-        <TouchableOpacity style={styles.more} onPress={() => Router.push(``)}>
+        <TouchableOpacity style={styles.more} onPress={() => router.push(``)}>
           <Text style={styles.Explore}>Explore </Text>
           <Icon
             style={styles.arrow}
@@ -36,12 +43,12 @@ const PetListCardTab = () => {
           ) : error ? (
             <Text>Something went wrong</Text>
           ) : (
-            data?.map(pet => (
+            data?.map(data => (
               <PetCard
-                pet={pet}
+                data={data}
                 key={`pet-details-${pet?.pet_id}`}
                 handleNavigate={() =>
-                  Router.push(`/pet-details/${pet?.pet_id}`)
+                  router.push(`/pet-details/${pet?.pet_id}`)
                 }
               />
             ))
