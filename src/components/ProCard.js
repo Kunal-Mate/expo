@@ -4,8 +4,8 @@ import  COLORS  from "../constants/COLOR";
 import { checkImageURL } from "../utils";
 
 
-const PetCard = ({pet, handleNavigate}) => {
-  // console.log(pet);
+const ProCard = ({product, handleNavigate}) => {
+  // console.log(product);
   return(
       <TouchableOpacity style={styles.productItem} onPress={handleNavigate}>
         <View style={styles.imageContainer}>
@@ -19,10 +19,10 @@ const PetCard = ({pet, handleNavigate}) => {
           )} */}
         </View>
         <View style={styles.productInfoContainer}>
-          <Text style={styles.productName}>{pet.pet_name}</Text>
-          <Text style={styles.productPrice}>Pet Type:- {pet.bod}</Text>
-          <Text style={styles.productPrice}>Breed:- {pet.breed}</Text>
-          <Text style={styles.productPrice}>Price:- {pet.gender}</Text>
+          <Text style={styles.productName}>{product.product_name}</Text>
+          <Text style={styles.productPrice}>Pet Type:- {product.pet_category_id}</Text>
+          <Text style={styles.productPrice}>Breed:- {product.brand_name}</Text>
+          <Text style={styles.productPrice}>Price:- {product.price}</Text>
         </View>
       </TouchableOpacity>
   )       
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
   },
 
 });
-export default PetCard;
+export default ProCard;

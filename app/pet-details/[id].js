@@ -25,13 +25,14 @@ const PetDetails = () => {
 
   // const data  = mockPets;
   // console.log(data[params.id]);
-  console.log(params.id)
+  // console.log(params.id)
 
   // const {data, isLoading, error, refetch} = useFetch('pet-details', {
-  const {data, isLoading, error, refetch} = useFetch('pet-details', {
-    pet_id: params.id,
+  const {data, isLoading, error, refetch} = useFetch('GET','pet-details', {
+    id: params.id,
   });
-  // console.log('para', params.id);
+  // const petId = data && data.id;
+  // console.log(data[0].id);
 
   const [refreshing, SetRefreshing] = useState(false);
   const onRefresh = () => {};
@@ -71,14 +72,12 @@ const PetDetails = () => {
             <Text>No data</Text>
           ) : (
             <View>
-              {/* the log is a for example to get data in the param and compare to
-              the fetched data */}
-              {/* <View style={{alignSelf:"center"}}>
-                <Text>id: {log.pet_id}</Text>
-                <Text>id: {log.pet_name}</Text>
-              </View> */}
+              <View style={{alignSelf:"center"}}>
+                <Text>id: {data[0].id}</Text>
+                <Text>id: {data[0].pet_name}</Text>
+              </View>
               <SliderContainer />
-              <DetailsTab />
+              <DetailsTab data={data[0]}  />
             </View>
           )}
           <View style={styles.ButtonContainer}>

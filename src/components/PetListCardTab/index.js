@@ -7,16 +7,13 @@ import COLORS from '../../constants/COLOR';
 import useFetch from '../../hook/useFetch';
 import {ActivityIndicator} from 'react-native-paper';
 import PetCard from '../PetCard';
+import ProCard from '../ProCard';
 import {useRouter} from 'expo-router';
 
 const PetListCardTab = () => {
   const router = useRouter();
-  // const {data, isLoading, error} = useFetch('all-data', {
-  //   query: 'Python developer in Texas, USA',
-  //   num_pages: 1,
-  // }); 
   const {data, isLoading, error} = useFetch("GET",'all-data');
-  console.log(data);
+  // console.log(data);
 
   // const [selectedItem, setSelectedItem] = useState();
 
@@ -43,12 +40,27 @@ const PetListCardTab = () => {
           ) : error ? (
             <Text>Something went wrong</Text>
           ) : (
-            data?.map(data => (
-              <PetCard
-                data={data}
-                key={`pet-details-${pet?.pet_id}`}
+            data.products?.map(product => (
+              <ProCard
+                product={product}
+                key={`pet-details-${product?.id}`}
                 handleNavigate={() =>
-                  router.push(`/pet-details/${pet?.pet_id}`)
+                  router.push(`/pet-details/${product?.id}`)
+                }
+              />
+            ))
+            )}
+            {isLoading ? (
+            <ActivityIndicator size="large" color={COLORS.Primary} />
+          ) : error ? (
+            <Text>Something went wrong</Text>
+          ) : (
+            data.petDetails?.map(pet => (
+              <PetCard
+                pet={pet}
+                key={`pet-details-${pet?.id}`}
+                handleNavigate={() =>
+                  router.push(`/pet-details/${pet?.id}`)
                 }
               />
             ))
@@ -59,3 +71,4 @@ const PetListCardTab = () => {
   );
 };
 export default PetListCardTab;
+           
