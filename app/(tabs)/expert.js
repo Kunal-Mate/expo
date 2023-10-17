@@ -12,7 +12,7 @@ import FONT from '../../src/constants/FONT';
 
 const expert = () => {
 
-  const {data} = useFetch('expert');
+  const {data} = useFetch('GET','expert');
   // console.log(data);
 
   const Router = useRouter();

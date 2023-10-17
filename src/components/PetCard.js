@@ -20,7 +20,7 @@ const PetCard = ({pet, handleNavigate}) => {
         </View>
         <View style={styles.productInfoContainer}>
           <Text style={styles.productName}>{pet.pet_name}</Text>
-          <Text style={styles.productPrice}>Pet Type:- {pet.bod}</Text>
+          <Text style={styles.productPrice}>Pet Type:- {pet.name}</Text>
           <Text style={styles.productPrice}>Breed:- {pet.breed}</Text>
           <Text style={styles.productPrice}>Price:- {pet.gender}</Text>
         </View>

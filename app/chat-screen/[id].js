@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View, Image, TouchableOpacity, FlatList} from 'react-native';
 import React from 'react';
 import {useRouter, useGlobalSearchParams} from 'expo-router';
-import useFetch from '../../src/hook/useFetch';
+import useIdFetch from '../../src/hook/useIdFetch';
 import {
   GiftedChat,
   InputToolbar,
@@ -14,12 +14,12 @@ import FONT from '../../src/constants/FONT';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const chat_screen = () => {
-  // const Router = useRouter();
-  // const { doctor } = Router.params;
-  // const params = useGlobalSearchParams();
-  // const {data, isLoading, error, refetch} = useFetch('expert', {
-  //   id: params.id,
-  // });
+  const params = useGlobalSearchParams();
+  const Id = Number(params.id); 
+  const Router = useRouter();
+  console.log('recived id', Id)
+  const {data, isLoading, error, refetch} = useIdFetch('GET','expert', Id);
+  console.log(data)
   // const data = mockdoctors;
   // console.log({data});
   // console.log();

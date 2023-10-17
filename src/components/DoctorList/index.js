@@ -7,15 +7,12 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 import COLORS from '../../constants/COLOR';
 import FONT from '../../constants/FONT';
 import { useRouter } from 'expo-router';
 
-// const Router = useRouter();
 
 const DoctorList = ({doctors}) => {
-  // const navigation = useNavigation();
   const Router = useRouter();
   const [selectedDoctor, setSelectedDoctor] = useState(null);
 
@@ -25,8 +22,8 @@ const DoctorList = ({doctors}) => {
 
   const handleContactClick = () => {
     if(selectedDoctor) {
-      Router.push(`/chat-screen/${selectedDoctor}`);
-      // console.log(item.id);
+      Router.push(`/chat-screen/${selectedDoctor.id}`);
+      console.log('pass id',selectedDoctor.id);
     }
   }
 
@@ -64,7 +61,7 @@ const DoctorList = ({doctors}) => {
                 </View>
                 <View style={{justifyContent: 'center', paddingLeft: 10}}>
                   <Text style={styles.doctorName}>{item.name}</Text>
-                  <Text style={styles.doctorsub}>Pet Expert</Text>
+                  <Text style={styles.doctorsub}>{item.message}</Text>
                 </View>
               </View>
               {selectedDoctor === item && (
@@ -85,7 +82,6 @@ const DoctorList = ({doctors}) => {
           </TouchableOpacity>
         )}
         keyExtractor={item => item.id.toString()}
-        
       />
     </View>
   );

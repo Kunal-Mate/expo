@@ -19,14 +19,14 @@ import COLOR from '../../src/constants/COLOR';
 import styles from './styles';
 import mockPets from '../../src/mock/mockPets';
 
-const PetDetails = () => {
+const ProDetails = () => {
   const params = useGlobalSearchParams();
   const Id = Number(params.id); 
   const Router = useRouter();
 
-  const {data, isLoading, error} = useIdFetch('GET','pets', Id);
-  // console.log(data.petDetails)
-  const pet = data.petDetails;
+  const {data, isLoading, error} = useIdFetch('GET','products', Id);
+  // console.log(Id)
+  // console.log(data)
 
   const [refreshing, SetRefreshing] = useState(false);
   const onRefresh = () => {};
@@ -67,8 +67,8 @@ const PetDetails = () => {
           ) : (
             <View>
               <View style={{alignSelf:"center"}}>
-                <Text>id: {pet.id}</Text>
-                <Text>name: {pet.pet_name}</Text>
+                <Text>id: {data.id}</Text>
+                <Text>name: {data.product_name}</Text>
               </View>
               <SliderContainer />
               <DetailsTab data={data[0]}  />
@@ -94,4 +94,4 @@ const PetDetails = () => {
   );
 };
 
-export default PetDetails;
+export default ProDetails;

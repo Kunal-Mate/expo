@@ -4,7 +4,7 @@ import styles from './styles'
 import COLOR from '../../constants/COLOR'
 
 const DetailsTab = ({data}) => {
-  console.log(data);
+  // console.log(data);
   return (
     <View style={styles.DetailScroll}>
             <View style={styles.Detail_Title}>
@@ -17,7 +17,7 @@ const DetailsTab = ({data}) => {
             <View style={styles.Details_name}>
               <Text style={styles.labal}>Name:</Text>
               <Text style={styles.data}>HERCULES CYCLES / </Text>
-              <Text style={styles.data}>{data.pet_name}</Text>
+              {/* <Text style={styles.data}>{data.pet_name}</Text> */}
             </View>
             <View style={{backgroundColor: COLOR.Gray2, height: 5}}></View>
             <View style={styles.Details_info}>
