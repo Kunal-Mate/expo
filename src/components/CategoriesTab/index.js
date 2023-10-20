@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, FlatList} from 'react-native';
 import styles from './styles';
 import mockCategories from '../../mock/mockCategories';
@@ -10,9 +10,20 @@ const CategoriesTab = () => {
   const {data} = useFetch('GET','pet-categories');
   // console.log(data);
 
-  // const handleNavigate = (item) => {
-  //   router.push(`/pet-details/${item.id}`)
-  // }
+  const [selectedCategory, setselectedCategory] = useState(null);
+
+  // const handleCategoryClick = doctor => {
+  //   selectedCategory(doctor);
+  // };
+
+  const handleCategoryClick = (item) => {
+    // if(selectedDoctor) {
+    //  router.push({`/list`,{item}});
+    // const Pet_categories  =  {item} ;
+    // router.push("/list", Pet_categories);
+    // console.log(Pet_categories);
+    
+  }
 
   return (
     <View>
@@ -25,7 +36,7 @@ const CategoriesTab = () => {
             horizontal
             showsHorizontalScrollIndicator={false}
             renderItem={({item}) => (
-              <TouchableOpacity style={styles.cateItem} >
+              <TouchableOpacity style={styles.cateItem} onPress={() => handleCategoryClick(item)}>
                 <View style={styles.ItemContainer}>
                   <Text style={styles.itemtext}>{item.name}</Text>
                 </View>
@@ -36,5 +47,6 @@ const CategoriesTab = () => {
       </View>
     </View>
   );
+ 
 };
 export default CategoriesTab;

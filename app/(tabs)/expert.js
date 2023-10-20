@@ -1,5 +1,5 @@
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import DoctorList from '../../src/components/DoctorList';
 import {useRouter} from 'expo-router';
 import doctors from '../../src/mock/mockDoctor';

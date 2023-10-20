@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import BASE_URL from '../config';
 
 const useFetch = (method, endpoint, params) => {
   const [data, setData] = useState([]);
@@ -8,9 +9,11 @@ const useFetch = (method, endpoint, params) => {
 
   const options = {
     method: method,
-    url: `https://fee9-103-158-139-130.ngrok-free.app/api/${endpoint}`,
+    // url: `https://fee9-103-158-139-130.ngrok-free.app/api/${endpoint}`,
+    url: `${BASE_URL}${endpoint}`,
     params: {...params},
   };
+  // console.log(options.url);
 
   const fetchData = async () => {
     setIsLoading(true);

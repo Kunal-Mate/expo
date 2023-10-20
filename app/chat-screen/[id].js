@@ -1,4 +1,11 @@
-import {StyleSheet, Text, View, Image, TouchableOpacity, FlatList} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  FlatList,
+} from 'react-native';
 import React from 'react';
 import {useRouter, useGlobalSearchParams} from 'expo-router';
 import useIdFetch from '../../src/hook/useIdFetch';
@@ -8,21 +15,17 @@ import {
   Send,
   Composer,
 } from 'react-native-gifted-chat';
-import mockdoctors from '../../src/mock/mockDoctor';
 import COLOR from '../../src/constants/COLOR';
 import FONT from '../../src/constants/FONT';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const chat_screen = () => {
   const params = useGlobalSearchParams();
-  const Id = Number(params.id); 
+  const Id = Number(params.id);
   const Router = useRouter();
-  console.log('recived id', Id)
-  const {data, isLoading, error, refetch} = useIdFetch('GET','expert', Id);
-  console.log(data)
-  // const data = mockdoctors;
-  // console.log({data});
-  // console.log();
+
+  const {data, isLoading, error, refetch} = useIdFetch('GET', 'expert', Id);
+  // console.log(data.id);
 
   const customInputToolbar = props => {
     return (
@@ -60,63 +63,65 @@ const chat_screen = () => {
   };
 
   return (
-    // <FlatList
-    //     data={data}
-    //     renderItem={({ item }) => (
-          <Text style={styles.productName}>onDoctorClick</Text>
-    //     )}
-        
-    //   />
-    // <View style={styles.container}>
-    //   {/* Header with doctor's avatar and name */}
-    //   <View style={styles.header}>
-    //     <TouchableOpacity
-    //       style={styles.backButton}
-    //       onPress={() => Router.back()}>
-    //       <Icon
-    //         style={styles.backIcon}
-    //         name="arrow-left"
-    //         size={20}
-    //         color={COLOR.Black}
-    //         onPress={() => Router.back()}
-    //       />
-    //     </TouchableOpacity>
-    //     <View style={styles.headerTitle}>
-    //       <Image
-    //         source={require('../../assets/IMGS/cat.jpg')}
-    //         style={styles.avatar}
-    //       />
-    //       <View style={styles.Title}>
-    //         <Text style={styles.doctorName}>DR. Mukerash Varma</Text>
-    //         <View style={styles.statuscontainer}>
-    //           <Icon name="circle" color={COLOR.Success} />
-    //           <Text style={styles.status}>Online</Text>
-    //         </View>
-    //       </View>
-    //     </View>
-    //     <TouchableOpacity
-    //       style={styles.menuButton}
-    //       onPress={() => Router.back()}>
-    //       <Icon
-    //         style={styles.backIcon}
-    //         name="ellipsis-v"
-    //         size={25}
-    //         color={COLOR.Black}
-    //         onPress={() => Router.back()}
-    //       />
-    //     </TouchableOpacity>
-    //   </View>
+      <View style={styles.container}>
+      {/* Below example for id check */}
+        {/* {data.id == '2' ?(<Text>hello</Text>):(<Text>Bye</Text>)} */}
+      
+      <View style={styles.header}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => Router.back()}>
+          <Icon
+            style={styles.backIcon}
+            name="arrow-left"
+            size={20}
+            color={COLOR.Black}
+            onPress={() => Router.back()}
+          />
+        </TouchableOpacity>
+        <View style={styles.headerTitle}>
+          <Image
+            source={require('../../assets/IMGS/cat.jpg')}
+            style={styles.avatar}
+          />
+          <View style={styles.Title}>
+            <Text style={styles.doctorName}>{data.name}</Text>
+            {data.status ? (
+              <View style={styles.statuscontainer}>
+                <Icon name="circle" color={COLOR.Success} />
+                <Text style={styles.status}>Online</Text>
+              </View>
+            ) : (
+              <View style={styles.statuscontainer}>
+                <Icon name="circle" color={COLOR.Danger} />
+                <Text style={styles.status}>Offline</Text>
+              </View>
+            )}
+          </View>
+        </View>
+        <TouchableOpacity
+          style={styles.menuButton}
+          onPress={() => Router.back()}>
+          <Icon
+            style={styles.backIcon}
+            name="ellipsis-v"
+            size={25}
+            color={COLOR.Black}
+            onPress={() => Router.back()}
+          />
+        </TouchableOpacity>
+      </View>
 
-    //   {/* Chatbox */}
-    //   <GiftedChat
-    //     messages={[]} // Initialize with empty messages or load messages dynamically
-    //     onSend={messages => {}}
-    //     user={{_id: 1}}
-    //     renderInputToolbar={props => customInputToolbar(props)}
-    //     renderSend={props => customSend(props)}
-    //     renderComposer={props => customComposer(props)}
-    //   />
-    // </View>
+      {/* Chatbox */}
+      <GiftedChat
+        messages={[]} // Initialize with empty messages or load messages dynamically
+        onSend={messages => {}}
+        user={{_id: 1}}
+        renderInputToolbar={props => customInputToolbar(props)}
+        renderSend={props => customSend(props)}
+        renderComposer={props => customComposer(props)}
+      />
+    </View>
   );
 };
 
@@ -146,7 +151,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     flexDirection: 'row',
     alignItems: 'center',
-    flex:1,
+    flex: 1,
   },
   avatar: {
     width: 50,
@@ -170,9 +175,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginLeft: 10,
   },
-  menuButton:{
-    padding:5,
-    marginRight:10,
+  menuButton: {
+    padding: 5,
+    marginRight: 10,
   },
 });
 

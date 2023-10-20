@@ -20,9 +20,9 @@ const ProCard = ({product, handleNavigate}) => {
         </View>
         <View style={styles.productInfoContainer}>
           <Text style={styles.productName}>{product.product_name}</Text>
-          <Text style={styles.productPrice}>Pet Type:- {product.pet_category_id}</Text>
-          <Text style={styles.productPrice}>Breed:- {product.brand_name}</Text>
-          <Text style={styles.productPrice}>Price:- {product.price}</Text>
+          <Text style={styles.productPrice}>Product Type :- {product.product_category.name}</Text>
+          <Text style={styles.productPrice}>Brand :- {product.brand_name}</Text>
+          <Text style={styles.productPrice}>Price :- {product.price}</Text>
         </View>
       </TouchableOpacity>
   )       

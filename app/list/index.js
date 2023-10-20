@@ -6,12 +6,14 @@ import useFetch from '../../src/hook/useFetch';
 import {ActivityIndicator} from 'react-native-paper';
 import PetCard from '../../src/components/PetCard';
 import ProCard from '../../src/components/ProCard';
-import {useRouter} from 'expo-router';
+import {useGlobalSearchParams,useRouter} from 'expo-router';
 
 
 const index = () => {
     const router = useRouter();
+    // const param = useGlobalSearchParams();
     const {data, isLoading, error} = useFetch("GET",'all-data');
+    // console.log(Pet_categories);
 
   return (
     <View style={styles.container}>

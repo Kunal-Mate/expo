@@ -46,7 +46,7 @@ const PetListCardTab = () => {
             ))
             )}
             {isLoading ? (
-            <ActivityIndicator size="large" color={COLORS.Primary} />
+              <></>
           ) : error ? (
             <Text>Something went wrong</Text>
           ) : (

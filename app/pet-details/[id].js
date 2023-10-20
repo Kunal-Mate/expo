@@ -30,7 +30,7 @@ const PetDetails = () => {
 
   const [refreshing, SetRefreshing] = useState(false);
   const onRefresh = () => {};
-
+  // console.log(pet)
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -43,7 +43,7 @@ const PetDetails = () => {
           onPress={() => Router.back()}
         />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Pet Profile</Text>
+        <Text style={styles.headerTitle}>Pets</Text>
         <Icon
           style={styles.Icon}
           name="share-alt"
@@ -67,11 +67,11 @@ const PetDetails = () => {
           ) : (
             <View>
               <View style={{alignSelf:"center"}}>
-                <Text>id: {pet.id}</Text>
-                <Text>name: {pet.pet_name}</Text>
+                {/* <Text>id: {pet.id}</Text>
+                <Text>name: {pet.pet_name}</Text> */}
               </View>
               <SliderContainer />
-              <DetailsTab data={data[0]}  />
+              <DetailsTab data={pet}  />
             </View>
           )}
           <View style={styles.ButtonContainer}>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import BASE_URL from "../config";
 
 const useIdFetch = (method, endpoint, id, query = {}) => {
   const [data, setData] = useState([]);
@@ -8,10 +9,11 @@ const useIdFetch = (method, endpoint, id, query = {}) => {
 
   const options = {
     method: method,
-    url: `https://fee9-103-158-139-130.ngrok-free.app/api/${endpoint}/${id}`,
+    url: `${BASE_URL}${endpoint}/${id}`,
+    // url: `https://fee9-103-158-139-130.ngrok-free.app/api/${endpoint}/${id}`,
     params: query,
   };
-//   console.log(options.url);
+  // console.log(options.url);
 
   const fetchData = async () => {
     setIsLoading(true);
@@ -35,7 +37,6 @@ const useIdFetch = (method, endpoint, id, query = {}) => {
     setIsLoading(true);
     fetchData();
   }
-
   return { data , isLoading, error, refetch };
 }
 export default useIdFetch;

@@ -43,7 +43,7 @@ const ProDetails = () => {
           onPress={() => Router.back()}
         />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Pet Profile</Text>
+        <Text style={styles.headerTitle}>Products</Text>
         <Icon
           style={styles.Icon}
           name="share-alt"
@@ -67,18 +67,18 @@ const ProDetails = () => {
           ) : (
             <View>
               <View style={{alignSelf:"center"}}>
-                <Text>id: {data.id}</Text>
-                <Text>name: {data.product_name}</Text>
+                {/* <Text>id: {data.id}</Text>
+                <Text>name: {data.product_name}</Text> */}
               </View>
               <SliderContainer />
-              <DetailsTab data={data[0]}  />
+              <DetailsTab data={data}  />
             </View>
           )}
           <View style={styles.ButtonContainer}>
             <Button
               mode="contained"
               color={COLOR.LightOrange}
-              onPress={() => console.log('Adopt Me')}>
+              onPress={() => console.log('Add to Cart')}>
               <Text style={{color: COLOR.Black}}>Adopt Me</Text>
             </Button>
             <Button
