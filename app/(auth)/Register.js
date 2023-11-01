@@ -13,7 +13,7 @@ function register() {
   const [password, setPassword] = useState('');
 
   const pushToLogin = () => {
-    router.push('Login');
+    // router.push('Login');
   };
 
   const handleRegistration = async () => {
@@ -31,9 +31,7 @@ function register() {
           .then(response => {
             if (response.data.status) {
               console.log(response.data.status);
-              router.push('Register');
-
-
+              router.push('Login');
             } else {
               console.log(response.data.messages);
             }

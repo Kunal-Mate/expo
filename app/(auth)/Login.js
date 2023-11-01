@@ -22,7 +22,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const pushToRegister = () => {
-    router.push('Register');
+    // router.push('Register');
   };
 
   const handleLogin = async () => {
@@ -44,7 +44,7 @@ const Login = () => {
             console.log(userInfo.status);
             router.push('home');
           }else{
-            console.log(JSON.stringify(response));
+            // console.log(JSON.stringify(response));
             console.log(response.data)
           }
         }
