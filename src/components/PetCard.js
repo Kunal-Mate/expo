@@ -21,8 +21,8 @@ const PetCard = ({pet, handleNavigate}) => {
         <View style={styles.productInfoContainer}>
           <Text style={styles.productName}>{pet.pet_name}</Text>
           <Text style={styles.productPrice}>Pet Type :- {pet.pet_category.name}</Text>
-          <Text style={styles.productPrice}>Breed :- {pet.breed}</Text>
-          <Text style={styles.productPrice}>gender :- {pet.gender}</Text>
+          <Text style={styles.productPrice}>Breed :- {pet.pet_breed}</Text>
+          <Text style={styles.productPrice}>gender :- {pet.pet_price}</Text>
         </View>
       </TouchableOpacity>
   )       

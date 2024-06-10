@@ -4,7 +4,7 @@ import {
   ScrollView,
   RefreshControl,
   ActivityIndicator,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import {useCallback, useState} from 'react';
 import {Stack, useGlobalSearchParams, useRouter} from 'expo-router';
@@ -21,10 +21,10 @@ import mockPets from '../../src/mock/mockPets';
 
 const ProDetails = () => {
   const params = useGlobalSearchParams();
-  const Id = Number(params.id); 
+  const Id = Number(params.id);
   const Router = useRouter();
 
-  const {data, isLoading, error} = useIdFetch('GET','products', Id);
+  const {data, isLoading, error} = useIdFetch('GET', 'specific_product', Id);
   // console.log(Id)
   // console.log(data)
 
@@ -34,14 +34,16 @@ const ProDetails = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton}  onPress={() => Router.back()}>
-        <Icon
-          style={styles.backIcon}
-          name="arrow-left"
-          size={20}
-          color={COLOR.Black}
-          onPress={() => Router.back()}
-        />
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => Router.back()}>
+          <Icon
+            style={styles.backIcon}
+            name="arrow-left"
+            size={20}
+            color={COLOR.Black}
+            onPress={() => Router.back()}
+          />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Products</Text>
         <Icon
@@ -66,12 +68,12 @@ const ProDetails = () => {
             <Text>No data</Text>
           ) : (
             <View>
-              <View style={{alignSelf:"center"}}>
+              <View style={{alignSelf: 'center'}}>
                 {/* <Text>id: {data.id}</Text>
                 <Text>name: {data.product_name}</Text> */}
               </View>
               <SliderContainer />
-              <DetailsTab data={data}  />
+              <DetailsTab data={data} />
             </View>
           )}
           <View style={styles.ButtonContainer}>

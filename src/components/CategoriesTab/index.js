@@ -31,8 +31,8 @@ const CategoriesTab = () => {
       <View style={styles.cateListContainer}>
         <View style={styles.listcontainer}>
           <FlatList
-            data={data}
-            // data={mockCategories}
+            // data={data}
+            data={mockCategories}
             horizontal
             showsHorizontalScrollIndicator={false}
             renderItem={({item}) => (

@@ -5,6 +5,7 @@ import BASE_URL from "../config";
 const useIdFetch = (method, endpoint, id, query = {}) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  // const [Id, setId] = useState([]);
   const [error, setError] = useState(null);
 
   const options = {
@@ -13,7 +14,7 @@ const useIdFetch = (method, endpoint, id, query = {}) => {
     // url: `https://fee9-103-158-139-130.ngrok-free.app/api/${endpoint}/${id}`,
     params: query,
   };
-  // console.log(options.url);
+  console.log(options.url);
 
   const fetchData = async () => {
     setIsLoading(true);

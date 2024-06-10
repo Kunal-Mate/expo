@@ -1,53 +1,64 @@
 const mockPets = [
-    {
-      pet_id: 1,
-      pet_name: "Fluffy",
-      pet_type: "Cat",
-      pet_breed: "Persian",
-      pet_price: "$300",
-      pet_image: require("../../assets/IMGS/background.png"),
+  {
+    id: 1,
+    pet_name: 'Bella',
+    pet_type: 'Dog',
+    pet_breed: 'Labrador Retriever',
+    pet_price: 800.0,
+    pet_image: 'https://example.com/images/labrador_retriever.jpg',
+    pet_category: {
+      id: 101,
+      name: 'Dogs',
     },
-    {
-      pet_id: 2,
-      pet_name: "Auddy",
-      pet_type: "Dog",
-      pet_breed: "Labrador",
-      pet_price: "$500",
-      pet_image: require("../../assets/IMGS/dog_image.jpg"),
+  },
+  {
+    id: 2,
+    pet_name: 'Milo',
+    pet_type: 'Cat',
+    pet_breed: 'Siamese',
+    pet_price: 600.0,
+    pet_image: 'https://example.com/images/siamese_cat.jpg',
+    pet_category: {
+      id: 102,
+      name: 'Cats',
     },
-    {
-      pet_id: 3,
-      pet_name: "Suddy",
-      pet_type: "Dog",
-      pet_breed: "Labrador",
-      pet_price: "$500",
-      pet_image: require("../../assets/IMGS/cat2.jpg"),
+  },
+  {
+    id: 3,
+    pet_name: 'Tweety',
+    pet_type: 'Bird',
+    pet_breed: 'Canary',
+    pet_price: 50.0,
+    pet_image: 'https://example.com/images/canary.jpg',
+    pet_category: {
+      id: 103,
+      name: 'Birds',
     },
-    {
-      pet_id: 4,
-      pet_name: "Luddy",
-      pet_type: "Horse",
-      pet_breed: "Labrador",
-      pet_price: "$500",
-      pet_image: require("../../assets/IMGS/background.png"),
+  },
+  {
+    id: 4,
+    pet_name: 'Nemo',
+    pet_type: 'Fish',
+    pet_breed: 'Clownfish',
+    pet_price: 30.0,
+    pet_image: 'https://example.com/images/clownfish.jpg',
+    pet_category: {
+      id: 104,
+      name: 'Fish',
     },
-    {
-      pet_id: 5,
-      pet_name: "Tuddy",
-      pet_type: "parot",
-      pet_breed: "Labrador",
-      pet_price: "$500",
-      pet_image: require("../../assets/IMGS/dog_image.jpg"),
+  },
+  {
+    id: 5,
+    pet_name: 'Spike',
+    pet_type: 'Reptile',
+    pet_breed: 'Bearded Dragon',
+    pet_price: 100.0,
+    pet_image: 'https://example.com/images/bearded_dragon.jpg',
+    pet_category: {
+      id: 105,
+      name: 'Reptiles',
     },
-    {
-      pet_id: 6,
-      pet_name: "Vuddy",
-      pet_type: "Dog",
-      pet_breed: "Labrador",
-      pet_price: "$500",
-      pet_image: require("../../assets/IMGS/cat.jpg"),
-    },
-    // Add more pet data
-  ];
+  },
+];
 
-  export default mockPets;
+export default mockPets;

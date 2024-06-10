@@ -4,6 +4,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 import COLORS from '../../constants/COLOR';
 import useFetch from '../../hook/useFetch';
+import mockProjects from '../../mock/mockProject';
+import mockPets from '../../mock/mockPets';
 import {ActivityIndicator} from 'react-native-paper';
 import PetCard from '../PetCard';
 import ProCard from '../ProCard';
@@ -11,14 +13,19 @@ import {useRouter} from 'expo-router';
 
 const PetListCardTab = () => {
   const router = useRouter();
-  const {data, isLoading, error} = useFetch("GET",'all-data');
-  // console.log(data)
+  // const {data, isLoading, error} = useFetch('GET', 'all-data');
+  const data = {mockProjects, mockPets};
+  const isLoading = false;
+  const error = null;
+  console.log(data);
 
   return (
     <View style={{flex: 1, marginTop: 10}}>
       <View style={styles.Heading}>
         <Text style={styles.ListTitle}>List</Text>
-        <TouchableOpacity style={styles.more} onPress={() => router.push(`/list`)}>
+        <TouchableOpacity
+          style={styles.more}
+          onPress={() => router.push(`/list`)}>
           <Text style={styles.Explore}>Explore </Text>
           <Icon
             style={styles.arrow}
@@ -35,28 +42,27 @@ const PetListCardTab = () => {
           ) : error ? (
             <Text>Something went wrong</Text>
           ) : (
-            data.products?.map(product => (
+            // data.products?.map(product => (
+            data.mockProjects?.map(product => (
               <ProCard
+                // product={product}
                 product={product}
                 key={`pet-details-${product.id}`}
-                handleNavigate={() =>
-                  router.push(`/pro-details/${product.id}`)
-                }
+                handleNavigate={() => router.push(`/pro-details/${product.id}`)}
               />
             ))
-            )}
-            {isLoading ? (
-              <></>
+          )}
+          {isLoading ? (
+            <></>
           ) : error ? (
             <Text>Something went wrong</Text>
           ) : (
-            data.petDetails?.map(pet => (
+            // data.petDetails?.map(pet => (
+              data.mockPets?.map(pet => (
               <PetCard
                 pet={pet}
                 key={`pet-details-${pet.id}`}
-                handleNavigate={() =>
-                  router.push(`/pet-details/${pet.id}`)
-                }
+                handleNavigate={() => router.push(`/pet-details/${pet.id}`)}
               />
             ))
           )}
@@ -66,4 +72,3 @@ const PetListCardTab = () => {
   );
 };
 export default PetListCardTab;
-           
