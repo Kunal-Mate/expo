@@ -24,9 +24,14 @@ const PetDetails = () => {
   const Id = Number(params.id); 
   const Router = useRouter();
 
-  const {data, isLoading, error} = useIdFetch('GET','pets', Id);
+  // const {data, isLoading, error} = useIdFetch('GET','pets', Id);
   // console.log(data.petDetails)
-  const pet = data.petDetails;
+  // const pet = data.petDetails;
+
+  const data = mockPets.find(p => p.id === Id);
+  // console.log(data)
+  const isLoading = false;
+  const error = null;
 
   const [refreshing, SetRefreshing] = useState(false);
   const onRefresh = () => {};
@@ -71,7 +76,7 @@ const PetDetails = () => {
                 <Text>name: {pet.pet_name}</Text> */}
               </View>
               <SliderContainer />
-              <DetailsTab data={pet}  />
+              <DetailsTab data={data} type="pet" />
             </View>
           )}
           <View style={styles.ButtonContainer}>

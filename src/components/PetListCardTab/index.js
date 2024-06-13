@@ -17,7 +17,7 @@ const PetListCardTab = () => {
   const data = {mockProjects, mockPets};
   const isLoading = false;
   const error = null;
-  console.log(data);
+  // console.log(data);
 
   return (
     <View style={{flex: 1, marginTop: 10}}>
@@ -58,7 +58,7 @@ const PetListCardTab = () => {
             <Text>Something went wrong</Text>
           ) : (
             // data.petDetails?.map(pet => (
-              data.mockPets?.map(pet => (
+            data.mockPets?.map(pet => (
               <PetCard
                 pet={pet}
                 key={`pet-details-${pet.id}`}

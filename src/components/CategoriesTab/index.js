@@ -8,7 +8,7 @@ import { useRouter } from 'expo-router';
 const CategoriesTab = () => {
   router = useRouter();
   const {data} = useFetch('GET','pet-categories');
-  // console.log(data);
+  // console.log(mockCategories);
 
   const [selectedCategory, setselectedCategory] = useState(null);
 

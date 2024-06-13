@@ -6,14 +6,19 @@ import useFetch from '../../src/hook/useFetch';
 import {ActivityIndicator} from 'react-native-paper';
 import PetCard from '../../src/components/PetCard';
 import ProCard from '../../src/components/ProCard';
-import {useGlobalSearchParams,useRouter} from 'expo-router';
+import {useGlobalSearchParams, useRouter} from 'expo-router';
 
+import mockProjects from '../../src/mock/mockProject';
+import mockPets from '../../src/mock/mockPets';
 
 const index = () => {
-    const router = useRouter();
-    // const param = useGlobalSearchParams();
-    const {data, isLoading, error} = useFetch("GET",'all-data');
-    // console.log(Pet_categories);
+  const router = useRouter();
+  // const param = useGlobalSearchParams();
+  // const {data, isLoading, error} = useFetch("GET",'all-data');
+  // console.log(Pet_categories);
+  const data = {mockProjects, mockPets};
+  const isLoading = false;
+  const error = null;
 
   return (
     <View style={styles.container}>
@@ -27,42 +32,42 @@ const index = () => {
           onPress={() => console.log('Share button')}
         />
       </View>
-      <View style={styles.BodyContainer}>
       <ScrollView>
-        <View style={styles.containContainer}>
-          {isLoading ? (
-            <ActivityIndicator size="large" color={COLOR.Primary} />
-          ) : error ? (
-            <Text>Something went wrong</Text>
-          ) : (
-            data.products?.map(product => (
-              <ProCard
-                product={product}
-                key={`pet-details-${product.id}`}
-                handleNavigate={() =>
-                  router.push(`/pro-details/${product.id}`)
-                }
-              />
-            ))
+        <View style={styles.BodyContainer}>
+          <View style={styles.containContainer}>
+            {isLoading ? (
+              <ActivityIndicator size="large" color={COLOR.Primary} />
+            ) : error ? (
+              <Text>Something went wrong</Text>
+            ) : (
+              // data.products?.map(product => (
+              data.mockProjects?.map(product => (
+                <ProCard
+                  product={product}
+                  key={`pro-details-${product.id}`}
+                  handleNavigate={() =>
+                    router.push(`/pro-details/${product.id}`)
+                  }
+                />
+              ))
             )}
             {isLoading ? (
-            <ActivityIndicator size="large" color={COLOR.Primary} />
-          ) : error ? (
-            <Text>Something went wrong</Text>
-          ) : (
-            data.petDetails?.map(pet => (
-              <PetCard
-                pet={pet}
-                key={`pet-details-${pet.id}`}
-                handleNavigate={() =>
-                  router.push(`/pet-details/${pet.id}`)
-                }
-              />
-            ))
-          )}
+              <ActivityIndicator size="large" color={COLOR.Primary} />
+            ) : error ? (
+              <Text>Something went wrong</Text>
+            ) : (
+              // data.petDetails?.map(pet => (
+              data.mockPets?.map(pet => (
+                <PetCard
+                  pet={pet}
+                  key={`pet-details-${pet.id}`}
+                  handleNavigate={() => router.push(`/pet-details/${pet.id}`)}
+                />
+              ))
+            )}
+          </View>
         </View>
       </ScrollView>
-      </View>
     </View>
   );
 };
@@ -94,7 +99,7 @@ const styles = StyleSheet.create({
   containContainer: {
     paddingHorizontal: 20,
     paddingTop: 10,
-    paddingBottom:10,
+    paddingBottom: 10,
   },
 });
 

@@ -17,16 +17,21 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {Button} from 'react-native-paper';
 import COLOR from '../../src/constants/COLOR';
 import styles from './styles';
-import mockPets from '../../src/mock/mockPets';
+import mockProjects from '../../src/mock/mockProject';
+// import mockPets from '../../src/mock/mockPets';
 
 const ProDetails = () => {
   const params = useGlobalSearchParams();
   const Id = Number(params.id);
   const Router = useRouter();
 
-  const {data, isLoading, error} = useIdFetch('GET', 'specific_product', Id);
-  // console.log(Id)
+  // const {data, isLoading, error} = useIdFetch('GET', 'specific_product', Id);
+  // console.log('id', Id)
+
+  const data = mockProjects.find(p => p.id === Id);
   // console.log(data)
+  const isLoading = false;
+  const error = null;
 
   const [refreshing, SetRefreshing] = useState(false);
   const onRefresh = () => {};
@@ -73,7 +78,7 @@ const ProDetails = () => {
                 <Text>name: {data.product_name}</Text> */}
               </View>
               <SliderContainer />
-              <DetailsTab data={data} />
+              <DetailsTab data={data} type="product"/>
             </View>
           )}
           <View style={styles.ButtonContainer}>

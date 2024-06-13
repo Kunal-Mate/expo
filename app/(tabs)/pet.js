@@ -8,39 +8,41 @@ import {
   FlatList,
   Dimensions,
 } from 'react-native';
-import { ScrollView } from 'react-native-virtualized-view';
+import {ScrollView} from 'react-native-virtualized-view';
 import COLOR from '../../src/constants/COLOR';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import mockPetProfile from '../../src/mock/mockPetProfile';
 
 const Pet = () => {
   const {width} = Dimensions.get('window');
   const photoSize = (width - 40) / 3; // 40 is the total horizontal margin and padding
 
   const Router = useRouter();
-  const pet = {
-    name: 'Buddy',
-    namesub: 'Boogyman',
-    type: 'Dog',
-    breed: 'Golden Retriever',
-    imageUrl:
-      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*', // Replace with the pet's image URL
-    followers: 1200,
-    photos: [
-      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
-      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
-      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
-      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
-      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
-      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
-      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
-      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
-      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
-      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
-      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
-      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
-      'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
-    ],
-  };
+  const pet = mockPetProfile.find(p => p.id === 1);
+  // const pet = {
+  //   name: 'Buddy',
+  //   namesub: 'Boogyman',
+  //   type: 'Dog',
+  //   breed: 'Golden Retriever',
+  //   imageUrl:
+  //     'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*', // Replace with the pet's image URL
+  //   followers: 1200,
+  //   photos: [
+  //     'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+  //     'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+  //     'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+  //     'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+  //     'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+  //     'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+  //     'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+  //     'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+  //     'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+  //     'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+  //     'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+  //     'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+  //     'https://hips.hearstapps.com/hmg-prod/images/chow-chow-portrait-royalty-free-image-1652926953.jpg?crop=0.44455xw:1xh;center,top&resize=980:*',
+  //   ],
+  // };
 
   return (
     <View style={styles.container}>
@@ -54,9 +56,8 @@ const Pet = () => {
           // onPress={() => console.log('Share button')}
         />
       </View>
-      <View style={styles.profileContainer}>
-      </View>
-      <ScrollView contentContainerStyle={{backgroundColor:COLOR.White}}>
+      <View style={styles.profileContainer}></View>
+      <ScrollView contentContainerStyle={{backgroundColor: COLOR.White}}>
         <View
           style={{
             flexDirection: 'row',
@@ -64,10 +65,11 @@ const Pet = () => {
             marginRight: 15,
             alignItems: 'center',
           }}>
-          <Image source={{uri: pet.imageUrl}} style={styles.petImage} />
+          <Image source={{uri: pet.profile_pic}} style={styles.petImage} />
           <View style={{flex: 1, padding: 5}}>
             <View style={{alignItems: 'center'}}>
               <Text style={styles.petName}>{pet.name}</Text>
+              <Text style={styles.petOwnerName}>{pet.owner_details.name}</Text>
             </View>
             <View
               style={{
@@ -83,7 +85,7 @@ const Pet = () => {
                 <Text style={styles.statLabel}>Photos</Text>
               </View>
               <View style={styles.statItem}>
-                <Text style={styles.statNumber}>{pet.followers}</Text>
+                <Text style={styles.statNumber}>{pet.total_followers}</Text>
                 <Text style={styles.statLabel}>Followers</Text>
               </View>
             </View>
@@ -92,26 +94,25 @@ const Pet = () => {
         <View style={{padding: 5}}>
           <Text style={styles.sectionTitle}>Bio</Text>
           <Text style={styles.bio}>
-            Bio aksjdhfkahs aksjdfh asjdkf asdfhdf ashfkjahd sdkfhasd f
-            askdjhfkasdh
+            {pet.bio}
           </Text>
         </View>
-      <View style={{padding: 5}}>
-        <Text style={styles.sectionTitle}>Photos</Text>
-        <FlatList
-          data={pet.photos}
-          numColumns={3}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({item}) => (
-            <View>
-              <Image
-                source={{uri: item}}
-                style={[styles.photo, {width: photoSize, height: photoSize}]}
-              />
-            </View>
-          )}
-        />
-      </View>
+        <View style={{padding: 5}}>
+          <Text style={styles.sectionTitle}>Photos</Text>
+          <FlatList
+            data={pet.photos}
+            numColumns={3}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({item}) => (
+              <View>
+                <Image
+                  source={{uri: item}}
+                  style={[styles.photo, {width: photoSize, height: photoSize}]}
+                />
+              </View>
+            )}
+          />
+        </View>
       </ScrollView>
     </View>
   );
@@ -146,11 +147,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    paddingTop: 30,
+    paddingTop: 20,
   },
   petImage: {
-    width: 140,
-    height: 120,
+    width: '40%',
+    height: '80%',
     borderRadius: 75,
   },
   petName: {
@@ -158,7 +159,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     marginBottom: 5,
-    marginLeft: 20,
+    // marginLeft: 20,
+  },
+  petOwnerName:{
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'gray',
+    marginBottom: 5,
+    // marginLeft: 20,
   },
   petType: {
     fontSize: 16,

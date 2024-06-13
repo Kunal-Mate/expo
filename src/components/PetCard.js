@@ -1,15 +1,14 @@
-import React from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
-import  COLORS  from "../constants/COLOR";
-import { checkImageURL } from "../utils";
-
+import React from 'react';
+import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import COLORS from '../constants/COLOR';
+import {checkImageURL} from '../utils';
 
 const PetCard = ({pet, handleNavigate}) => {
   // console.log(pet);
-  return(
-      <TouchableOpacity style={styles.productItem} onPress={handleNavigate}>
-        <View style={styles.imageContainer}>
-          {/* {pet.pet_image && (
+  return (
+    <TouchableOpacity style={styles.productItem} onPress={handleNavigate}>
+      <View style={styles.imageContainer}>
+        {/* {pet.pet_image && (
             // <Image source={job.employer_logo} style={styles.productImage} />
             <Image source={{ uri: checkImageURL(pet.pet_image)
               ? pet.pet_image : "https://mma.prnewswire.com/media/1158927/Randstad_logo.jpg?p=facebook"
@@ -17,26 +16,37 @@ const PetCard = ({pet, handleNavigate}) => {
             resizeMode="contain"
             style={styles.productImage} />
           )} */}
-        </View>
-        <View style={styles.productInfoContainer}>
-          <Text style={styles.productName}>{pet.pet_name}</Text>
-          <Text style={styles.productPrice}>Pet Type :- {pet.pet_category.name}</Text>
-          <Text style={styles.productPrice}>Breed :- {pet.pet_breed}</Text>
-          <Text style={styles.productPrice}>gender :- {pet.pet_price}</Text>
-        </View>
-      </TouchableOpacity>
-  )       
+        <Image
+          source={{
+            uri: checkImageURL(pet.image)
+              ? pet.image
+              : 'https://mma.prnewswire.com/media/1158927/Randstad_logo.jpg?p=facebook',
+          }}
+          resizeMode="contain"
+          style={styles.productImage}
+        />
+      </View>
+      <View style={styles.productInfoContainer}>
+        <Text style={styles.productName}>{pet.pet_name}</Text>
+        <Text style={styles.productPrice}>
+          Pet Type :- {pet.pet_category.name}
+        </Text>
+        <Text style={styles.productPrice}>Breed :- {pet.pet_breed}</Text>
+        <Text style={styles.productPrice}>gender :- {pet.pet_price}</Text>
+      </View>
+    </TouchableOpacity>
+  );
 };
 const styles = StyleSheet.create({
   productItem: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 20,
     backgroundColor: COLORS.White,
     borderRadius: 10,
     elevation: 3,
     shadowColor: COLORS.Black,
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },
@@ -47,7 +57,7 @@ const styles = StyleSheet.create({
   },
   productName: {
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 8,
   },
   productPrice: {
@@ -60,7 +70,7 @@ const styles = StyleSheet.create({
     height: 90,
     marginLeft: 10,
     marginRight: 10,
-    overflow: "hidden",
+    overflow: 'hidden',
     borderRadius: 5,
   },
   productImage: {
@@ -68,6 +78,5 @@ const styles = StyleSheet.create({
     height: 50,
     width: 150,
   },
-
 });
 export default PetCard;

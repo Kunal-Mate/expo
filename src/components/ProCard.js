@@ -5,7 +5,7 @@ import {checkImageURL} from '../utils';
 // import pet_product from '../../assets';
 
 const ProCard = ({product, handleNavigate}) => {
-  console.log(product);
+  // console.log(product);
   // console.log(project.project_name);
   return (
     <TouchableOpacity style={styles.productItem} onPress={handleNavigate}>

@@ -23,7 +23,7 @@ const DoctorList = ({doctors}) => {
   const handleContactClick = () => {
     if(selectedDoctor) {
       Router.push(`/chat-screen/${selectedDoctor.id}`);
-      console.log('pass id',selectedDoctor.id);
+      // console.log('pass id',selectedDoctor.id);
     }
   }
 
@@ -61,7 +61,7 @@ const DoctorList = ({doctors}) => {
                 </View>
                 <View style={{justifyContent: 'center', paddingLeft: 10}}>
                   <Text style={styles.doctorName}>{item.name}</Text>
-                  <Text style={styles.doctorsub}>{item.message}</Text>
+                  <Text style={styles.doctorsub}>{item.expertIn}</Text>
                 </View>
               </View>
               {selectedDoctor === item && (

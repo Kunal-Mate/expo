@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './styles';
 import COLOR from '../../constants/COLOR';
 
-const DetailsTab = ({data}) => {
+const DetailsTab = ({data, type }) => {
   // console.log(data);
   return (
     <View style={styles.DetailScroll}>
@@ -16,13 +16,13 @@ const DetailsTab = ({data}) => {
       <View style={{backgroundColor: COLOR.Gray2, height: 5}}></View>
       <View style={styles.Details_name}>
         <Text style={styles.labal}>Name:</Text>
-        <Text style={styles.data}> {data.pet_name || data.product_name} </Text>
+        <Text style={styles.data}> {(type=='pet')? data.pet_name : data.product_name} </Text>
       </View>
       <View style={{backgroundColor: COLOR.Gray2, height: 5}}></View>
       <View style={styles.Details_info}>
         <View style={styles.Details}>
           <Text style={styles.labal}>Type: </Text>
-          <Text style={styles.data}>{data.pet_category.name}</Text>
+          <Text style={styles.data}>{(type=='pet')? data.pet_category.name:data.product_category.name }</Text>
         </View>
         <View style={styles.Details}>
           {data.pet_name ? (
@@ -34,13 +34,11 @@ const DetailsTab = ({data}) => {
         </View>
         <View style={styles.Details}>
           {data.pet_name ? (
-            <Text style={styles.labal}>Gender: </Text>
-          ) : (
-            <Text style={styles.labal}>Product Type: </Text>
-          )}
-          <Text style={styles.data}>
-            {data.gender || data.product_category.name}
+            <Text style={styles.labal}>Gender: </Text>)&&
+            (<Text style={styles.data}>
+            {data.gender}
           </Text>
+          ) : ''}
         </View>
         <View style={styles.Details}>
           {data.pet_name ? (
